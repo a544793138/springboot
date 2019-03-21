@@ -1,0 +1,9 @@
+com\tjwoods\book\BookService.class
+com\tjwoods\book\BookServiceImpl.class
+com\tjwoods\book\BookListener.class
+com\tjwoods\book\Book.class
+com\tjwoods\Application.class
+com\tjwoods\cache\InfinispanCacheConfig.class
+com\tjwoods\book\BookParameter.class
+com\tjwoods\book\BookController.class
+com\tjwoods\book\BookRepository.class

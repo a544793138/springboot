@@ -1,0 +1,10 @@
+server: 
+  port: 8081
+    
+cluster: 
+  # 集群名称，可不填
+  cluster-name: linxl-cluster
+  # 该节点名称，可不填
+  node-name: B
+  # 通讯协议，TCP / UDP / K8S，可不填，默认 UDP
+  protocol: UDP
