@@ -40,6 +40,13 @@
       <artifactId>commons-lang3</artifactId>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.jgroups.kubernetes/jgroups-kubernetes -->
+    <dependency>
+      <groupId>org.jgroups.kubernetes</groupId>
+      <artifactId>jgroups-kubernetes</artifactId>
+      <version>1.0.9.Final</version>
+    </dependency>
+
   </dependencies>
 
   <build>

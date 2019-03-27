@@ -46,4 +46,5 @@ public class BookListener {
 			return;
 		log.info("Cache entry {} Invalidated in cache {}", event.getKey(), event.getCache());
 	}
+	
 }

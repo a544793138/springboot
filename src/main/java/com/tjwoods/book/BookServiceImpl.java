@@ -11,17 +11,36 @@ public class BookServiceImpl implements BookService {
 
 	private final Logger log = LoggerFactory.getLogger(BookServiceImpl.class);
 
-	@Cacheable(value = "bookCache", key = "#name")
+	@Cacheable(value = "bookCache", key = "#id")
 	@Override
-	public Book findByName(String name) {
-		log.info("find book {} from DB.", name);
-		return new Book(1, name, "writer");
+	public Book findById(Integer id) {
+		if (id == null) {
+			throw new IllegalArgumentException("Parameter 'id' cannot be null");
+		}
+		if (!BookDB.BOOKS.containsKey(id)) {
+			log.debug("Cannot found book by id: {} from BOOKDB", id);
+			return null;
+		}
+		return BookDB.BOOKS.get(id);
 	}
 
-	@CachePut(value = "bookCache", key = "#book.name")
+	/**
+	 * 
+	 */
+	@CachePut(value = "bookCache", key = "#id")
 	@Override
-	public Book update(Book book) throws Exception {
-		log.info("Update {} to DB.", book);
+	public Book update(Integer id, Book book) {
+		if (id == null) {
+			throw new IllegalArgumentException("Parameter 'id' cannot be null");
+		}
+		if (book == null) {
+			throw new IllegalArgumentException("Parameter 'book' cannot be null");
+		}
+		if (!BookDB.BOOKS.containsKey(id)) {
+			log.debug("Cannot found book by id: {} from BOOKDB", id);
+			return null;
+		}
+		BookDB.BOOKS.put(id, book);
 		return book;
 	}
 
